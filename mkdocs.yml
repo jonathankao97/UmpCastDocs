@@ -1,0 +1,14 @@
+site_name: UmpCast API Docs
+nav:
+  - Home: 'README.md'
+  - Installation: 'installation.md'
+  - 'Models':
+    - 'User Models': 'models/users.md'
+    - 'League Models': 'models/leagues.md'
+    - 'Game Models': 'models/games.md'
+    - 'Notification Models': 'models/notifications.md'
+  - 'Endpoints':
+    - 'User Endpoints': 'endpoints/users.md'
+    - 'League Endpoints': 'endpoints/leagues.md'
+    - 'Game Endpoints': 'endpoints/games.md'
+    - 'Notification Endpoints': 'endpoints/notifications.md'
