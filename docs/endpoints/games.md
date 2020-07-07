@@ -1,0 +1,3 @@
+# Games Application Endpoints
+
+Stay tuned...

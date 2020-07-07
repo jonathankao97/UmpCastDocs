@@ -1,0 +1,3 @@
+# Leagues Application Endpoints
+
+Stay tuned...
