@@ -119,6 +119,62 @@
             
             <li class="nav-item" data-level="1"><a href="#leagues-application-endpoints" class="nav-link">Leagues Application Endpoints</a>
               <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#league-create" class="nav-link">League Create</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#league-retrieve" class="nav-link">League Retrieve</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#league-fullpartial-update" class="nav-link">League Full/Partial Update</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#league-destroy" class="nav-link">League Destroy</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#league-list" class="nav-link">League List</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#division-create" class="nav-link">Division Create</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#division-destroy" class="nav-link">Division Destroy</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#role-create" class="nav-link">Role Create</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#role-destroy" class="nav-link">Role Destroy</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#applyleaguecode-create" class="nav-link">ApplyLeagueCode Create</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#applyleaguecode-retrieve" class="nav-link">ApplyLeagueCode Retrieve</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#applyleaguecode-updatepartial-update" class="nav-link">ApplyLeagueCode Update/Partial Update</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#applyleaguecode-destroy" class="nav-link">ApplyLeagueCode Destroy</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#applyleague-code-list" class="nav-link">ApplyLeague Code List</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -127,7 +183,44 @@
                     <div class="col-md-9" role="main">
 
 <h1 id="leagues-application-endpoints">Leagues Application Endpoints</h1>
-<p>Stay tuned...</p></div>
+<h2 id="league-create">League Create</h2>
+<p><strong>Endpoint</strong>: <a href="http://localhost:8000/api/leagues/">http://localhost:8000/api/leagues/</a> (POST REQUEST)</p>
+<h2 id="league-retrieve">League Retrieve</h2>
+<p>Returns nested substructure</p>
+<p><strong>Endpoint</strong>: <a href="http://localhost:8000/api/leagues/PK/">http://localhost:8000/api/leagues/PK/</a> (GET REQUEST)</p>
+<h2 id="league-fullpartial-update">League Full/Partial Update</h2>
+<p><strong>Endpoint</strong>: <a href="http://localhost:8000/api/leagues/PK/">http://localhost:8000/api/leagues/PK/</a> (PUT or PATCH REQUEST)</p>
+<h2 id="league-destroy">League Destroy</h2>
+<p><strong>Endpoint</strong>: <a href="http://localhost:8000/api/leagues/PK/">http://localhost:8000/api/leagues/PK/</a> (DELETE REQUEST)</p>
+<h2 id="league-list">League List</h2>
+<p>Returns a list of public league profiles. If user query-param is specified, returns all leagues associated to that user</p>
+<p><strong>Endpoint</strong> <a href="http://localhost:8000/api/leagues/">http://localhost:8000/api/leagues/</a> (GET REQUEST)</p>
+<p><strong>Query-Params</strong></p>
+<pre><code>    \?user=&lt;USER_PK&gt;
+</code></pre>
+<h2 id="division-create">Division Create</h2>
+<p>Note that Division only supports Create/Destroy functionality. Divisions should never be individually accessed or updated. See League</p>
+<p><strong>Endpoint</strong>: <a href="http://localhost:8000/api/divisions/">http://localhost:8000/api/divisions/</a> (POST REQUEST)</p>
+<h2 id="division-destroy">Division Destroy</h2>
+<p><strong>Endpoint</strong>: <a href="http://localhost:8000/api/divisions/PK/">http://localhost:8000/api/divisions/PK/</a> (DELETE REQUEST)</p>
+<h2 id="role-create">Role Create</h2>
+<p>Similar to Division. Only supports Create/Destroy functionality</p>
+<p><strong>Endpoint</strong>: <a href="http://localhost:8000/api/roles/">http://localhost:8000/api/roles/</a> (POST REQUEST)</p>
+<h2 id="role-destroy">Role Destroy</h2>
+<p><strong>Endpoint</strong>: <a href="http://localhost:8000/api/roles/PK/">http://localhost:8000/api/roles/PK/</a> (DELETE REQUEST)</p>
+<h2 id="applyleaguecode-create">ApplyLeagueCode Create</h2>
+<p><strong>Endpoint</strong> <a href="http://localhost:8000/api/apply-league-code/">http://localhost:8000/api/apply-league-code/</a> (POST REQUEST)</p>
+<h2 id="applyleaguecode-retrieve">ApplyLeagueCode Retrieve</h2>
+<p><strong>Endpoint</strong> <a href="http://localhost:8000/api/apply-league-code/PK/">http://localhost:8000/api/apply-league-code/PK/</a> (GET REQUEST)</p>
+<h2 id="applyleaguecode-updatepartial-update">ApplyLeagueCode Update/Partial Update</h2>
+<p><strong>Endpoint</strong> <a href="http://localhost:8000/api/apply-league-code/PK">http://localhost:8000/api/apply-league-code/PK</a> (PUT or PATCH REQUEST)</p>
+<h2 id="applyleaguecode-destroy">ApplyLeagueCode Destroy</h2>
+<p><strong>Endpoint</strong> <a href="http://localhost:8000/api/apply-league-code/PK">http://localhost:8000/api/apply-league-code/PK</a>  (DELETE REQUEST)</p>
+<h2 id="applyleague-code-list">ApplyLeague Code List</h2>
+<p><strong>Endpoint</strong> <a href="http://localhost:8000/api/apply-league-code/">http://localhost:8000/api/apply-league-code/</a> (GET REQUEST)</p>
+<p><strong>Query-Params</strong></p>
+<pre><code>    \?league=&lt;LEAGUE_PK&gt;
+</code></pre></div>
             </div>
         </div>
 
