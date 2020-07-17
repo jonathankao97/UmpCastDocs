@@ -60,6 +60,15 @@
 </li>
                                 </ul>
                             </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Serializers <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../serializers/leagues/" class="dropdown-item">Leagues Serializers</a>
+</li>
+                                </ul>
+                            </li>
                             <li class="dropdown active">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Endpoints <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
@@ -184,30 +193,73 @@
 
 <h1 id="leagues-application-endpoints">Leagues Application Endpoints</h1>
 <h2 id="league-create">League Create</h2>
-<p><strong>Endpoint</strong>: <a href="http://localhost:8000/api/leagues/">http://localhost:8000/api/leagues/</a> (POST REQUEST)</p>
+<p><strong>Permissions</strong>: Is Manager</p>
+<p><strong>Endpoint</strong>: <a href="http://localhost:8000/api/leagues/">http://localhost:8000/api/leagues/</a></p>
+<pre><code>    POST DATA = {
+      "title": "&lt;LEAGUE_NAME&gt;"
+    }
+</code></pre>
 <h2 id="league-retrieve">League Retrieve</h2>
-<p>Returns nested substructure</p>
-<p><strong>Endpoint</strong>: <a href="http://localhost:8000/api/leagues/PK/">http://localhost:8000/api/leagues/PK/</a> (GET REQUEST)</p>
+<p>Returns nested substructure of league including divisions and roles</p>
+<p><strong>Permissions</strong>: Is League Owner</p>
+<p><strong>Endpoint</strong>: <a href="http://localhost:8000/api/leagues/PK/">http://localhost:8000/api/leagues/PK/</a></p>
+<pre><code>    GET REQUEST:
+      Authorization: "Bearer &lt;ACCESS_TOKEN&gt;"
+</code></pre>
 <h2 id="league-fullpartial-update">League Full/Partial Update</h2>
-<p><strong>Endpoint</strong>: <a href="http://localhost:8000/api/leagues/PK/">http://localhost:8000/api/leagues/PK/</a> (PUT or PATCH REQUEST)</p>
+<p><strong>Permissions</strong>: Is League Owner</p>
+<p><strong>Endpoint</strong>: <a href="http://localhost:8000/api/leagues/PK/">http://localhost:8000/api/leagues/PK/</a></p>
+<pre><code>    PUT/PATCH DATA = {
+      "title": "&lt;UPDATED_TITLE&gt;"
+      ...
+    }
+</code></pre>
 <h2 id="league-destroy">League Destroy</h2>
-<p><strong>Endpoint</strong>: <a href="http://localhost:8000/api/leagues/PK/">http://localhost:8000/api/leagues/PK/</a> (DELETE REQUEST)</p>
+<p><strong>Permissions</strong>: Is League Owner</p>
+<p><strong>Endpoint</strong>: <a href="http://localhost:8000/api/leagues/PK/">http://localhost:8000/api/leagues/PK/</a></p>
+<pre><code>    DELETE REQUEST:
+      Authorization: "Bearer &lt;ACCESS_TOKEN&gt;"
+</code></pre>
 <h2 id="league-list">League List</h2>
-<p>Returns a list of public league profiles. If user query-param is specified, returns all leagues associated to that user</p>
-<p><strong>Endpoint</strong> <a href="http://localhost:8000/api/leagues/">http://localhost:8000/api/leagues/</a> (GET REQUEST)</p>
+<p>Returns a list of public (not private) league profiles. If user query-param is specified, returns all leagues associated to that user</p>
+<p><strong>Permissions</strong>: Is Umpire Owner</p>
+<p><strong>Endpoint</strong> <a href="http://localhost:8000/api/leagues/">http://localhost:8000/api/leagues/</a></p>
+<pre><code>    GET REQUEST:
+      Authorization: "Bearer &lt;ACCESS_TOKEN&gt;"
+</code></pre>
 <p><strong>Query-Params</strong></p>
 <pre><code>    \?user=&lt;USER_PK&gt;
 </code></pre>
 <h2 id="division-create">Division Create</h2>
-<p>Note that Division only supports Create/Destroy functionality. Divisions should never be individually accessed or updated. See League</p>
-<p><strong>Endpoint</strong>: <a href="http://localhost:8000/api/divisions/">http://localhost:8000/api/divisions/</a> (POST REQUEST)</p>
+<p>Note that Division only supports Create/Destroy functionality. Only add other functionality if necessary. Additional validation requirements in serializer level</p>
+<p><strong>Permissions</strong>: Is Manager</p>
+<p><strong>Endpoint</strong>: <a href="http://localhost:8000/api/divisions/">http://localhost:8000/api/divisions/</a></p>
+<pre><code>    POST DATA = {
+      "title": &lt;DIVISION_TITLE&gt;,
+      "league": &lt;LEAGUE_PK&gt;
+    }
+</code></pre>
 <h2 id="division-destroy">Division Destroy</h2>
-<p><strong>Endpoint</strong>: <a href="http://localhost:8000/api/divisions/PK/">http://localhost:8000/api/divisions/PK/</a> (DELETE REQUEST)</p>
+<p><strong>Permissions</strong>: Is Division Owner</p>
+<p><strong>Endpoint</strong>: <a href="http://localhost:8000/api/divisions/PK/">http://localhost:8000/api/divisions/PK/</a></p>
+<pre><code>    DELETE REQUEST:
+      Authorization: "Bearer &lt;ACCESS_TOKEN&gt;"
+</code></pre>
 <h2 id="role-create">Role Create</h2>
-<p>Similar to Division. Only supports Create/Destroy functionality</p>
-<p><strong>Endpoint</strong>: <a href="http://localhost:8000/api/roles/">http://localhost:8000/api/roles/</a> (POST REQUEST)</p>
+<p>Similar to Division. Only supports Create/Destroy functionality. Additional validation requirements in serializer level</p>
+<p><strong>Permissions</strong>: Is Manager</p>
+<p><strong>Endpoint</strong>: <a href="http://localhost:8000/api/roles/">http://localhost:8000/api/roles/</a></p>
+<pre><code>    POST DATA = {
+      "title": &lt;ROLE_TITLE&gt;,
+      "division": &lt;DIVISION_PK&gt;
+    }
+</code></pre>
 <h2 id="role-destroy">Role Destroy</h2>
-<p><strong>Endpoint</strong>: <a href="http://localhost:8000/api/roles/PK/">http://localhost:8000/api/roles/PK/</a> (DELETE REQUEST)</p>
+<p><strong>Permissions</strong>: Is Division Owner</p>
+<p><strong>Endpoint</strong>: <a href="http://localhost:8000/api/roles/PK/">http://localhost:8000/api/roles/PK/</a></p>
+<pre><code>    DELETE REQUEST:
+      Authorization: "Bearer &lt;ACCESS_TOKEN&gt;"
+</code></pre>
 <h2 id="applyleaguecode-create">ApplyLeagueCode Create</h2>
 <p><strong>Endpoint</strong> <a href="http://localhost:8000/api/apply-league-code/">http://localhost:8000/api/apply-league-code/</a> (POST REQUEST)</p>
 <h2 id="applyleaguecode-retrieve">ApplyLeagueCode Retrieve</h2>

@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Notification Models - UmpCast API Docs</title>
+        <title>Leagues Serializers - UmpCast API Docs</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -39,33 +39,33 @@
                             <li class="navitem">
                                 <a href="../../installation/" class="nav-link">Installation</a>
                             </li>
-                            <li class="dropdown active">
+                            <li class="dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Models <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="../users/" class="dropdown-item">User Models</a>
+    <a href="../../models/users/" class="dropdown-item">User Models</a>
 </li>
                                     
 <li>
-    <a href="../leagues/" class="dropdown-item">League Models</a>
+    <a href="../../models/leagues/" class="dropdown-item">League Models</a>
 </li>
                                     
 <li>
-    <a href="../games/" class="dropdown-item">Game Models</a>
+    <a href="../../models/games/" class="dropdown-item">Game Models</a>
 </li>
                                     
 <li>
-    <a href="./" class="dropdown-item active">Notification Models</a>
+    <a href="../../models/notifications/" class="dropdown-item">Notification Models</a>
 </li>
                                 </ul>
                             </li>
-                            <li class="dropdown">
+                            <li class="dropdown active">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Serializers <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="../../serializers/leagues/" class="dropdown-item">Leagues Serializers</a>
+    <a href="./" class="dropdown-item active">Leagues Serializers</a>
 </li>
                                 </ul>
                             </li>
@@ -99,12 +99,12 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href="../games/" class="nav-link">
+                                <a rel="prev" href="../../models/notifications/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../../serializers/leagues/" class="nav-link">
+                                <a rel="next" href="../../endpoints/users/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -126,8 +126,24 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="1"><a href="#notification-model-info" class="nav-link">Notification Model Info</a>
+            <li class="nav-item" data-level="1"><a href="#league-app-serializers" class="nav-link">League App Serializers</a>
               <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#league-private-serializer" class="nav-link">League Private Serializer</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#league-public-serializer" class="nav-link">League Public Serializer</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#division-serializer" class="nav-link">Division Serializer</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#role-serializer" class="nav-link">Role Serializer</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -135,8 +151,62 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="notification-model-info">Notification Model Info</h1>
-<p>Stay tuned...</p></div>
+<h1 id="league-app-serializers">League App Serializers</h1>
+<p>All serializers are displayed in expanded (repr) view</p>
+<h2 id="league-private-serializer">League Private Serializer</h2>
+<p>Used for Create, Retrieve, Update, Destroy operations. Displays all information about league (hence, private). Includes division and role serializers nested inside.
+No extra validations.</p>
+<pre><code>    LeaguePrivateSerializer():
+      pk = IntegerField(label='ID', read_only=True)
+      title = CharField(max_length=64)
+      description = CharField(allow_blank=True, allow_null=True, max_length=1028, required=False, style={'base_template': 'textarea.html'})
+      divisions = DivisionSerializer(many=True, read_only=True, source='division_set'):
+        pk = IntegerField(label='ID', read_only=True)
+        title = CharField(max_length=64)
+        league = PrimaryKeyRelatedField(read_only=True)
+        ts_id = IntegerField(max_value=2147483647, min_value=-2147483648, required=False)
+        roles = RoleSerializer(many=True, read_only=True, source='role_set'):
+            pk = IntegerField(label='ID', read_only=True)
+            title = CharField(max_length=64)
+            division = PrimaryKeyRelatedField(read_only=True)
+      league_picture = ImageField(allow_null=True, max_length=100, required=False)
+      public_access = BooleanField(required=False)
+      date_joined = DateTimeField(read_only=True)
+      expiration_date = DateTimeField(required=False)
+      adv_scheduling_limit = IntegerField(max_value=2147483647, min_value=-2147483648, required=False)
+      ts_id = IntegerField(max_value=2147483647, min_value=-2147483648, required=False)
+      opponent_library = JSONField(encoder=None, required=False, style={'base_template': 'textarea.html'})
+</code></pre>
+<h2 id="league-public-serializer">League Public Serializer</h2>
+<p>Used for List and Filter operations. Displays only public information. Fields cannot be edited.
+No extra validations.</p>
+<pre><code>    LeaguePublicSerializer():
+        pk = IntegerField(label='ID', read_only=True)
+        title = CharField(read_only=True)
+        description = CharField(read_only=True, style={'base_template': 'textarea.html'})
+        league_picture = ImageField(read_only=True)
+</code></pre>
+<h2 id="division-serializer">Division Serializer</h2>
+<p>Used for all Division Operations. Displays all information about a division, including nested roles.</p>
+<p>Extra Validation: can only attach a division to a league that you own</p>
+<pre><code>    DivisionSerializer():
+        pk = IntegerField(label='ID', read_only=True)
+        title = CharField(max_length=64)
+        league = PrimaryKeyRelatedField(read_only=True)
+        ts_id = IntegerField(max_value=2147483647, min_value=-2147483648, required=False)
+        roles = RoleSerializer(many=True, read_only=True, source='role_set'):
+            pk = IntegerField(label='ID', read_only=True)
+            title = CharField(max_length=64)
+            division = PrimaryKeyRelatedField(read_only=True)
+</code></pre>
+<h2 id="role-serializer">Role Serializer</h2>
+<p>Used for all Role Operations. Displays all information about a role</p>
+<p>Extra Validation: can only attach a role to a division that is attached to a league that you own</p>
+<pre><code>    RoleSerializer():
+        pk = IntegerField(label='ID', read_only=True)
+        title = CharField(max_length=64)
+        division = PrimaryKeyRelatedField(read_only=True)
+</code></pre></div>
             </div>
         </div>
 
