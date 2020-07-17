@@ -2,29 +2,58 @@
 
 ## League Create
 
-**Endpoint**: <http://localhost:8000/api/leagues/> (POST REQUEST)
+**Permissions**: Is Manager
+
+**Endpoint**: <http://localhost:8000/api/leagues/>
+
+
+        POST DATA = {
+          "title": "<LEAGUE_NAME>"
+        }
+
 
 ## League Retrieve
 
-Returns nested substructure
+Returns nested substructure of league including divisions and roles
 
-**Endpoint**: <http://localhost:8000/api/leagues/PK/> (GET REQUEST)
+**Permissions**: Is League Owner
+
+**Endpoint**: <http://localhost:8000/api/leagues/PK/>
+
+        GET REQUEST:
+          Authorization: "Bearer <ACCESS_TOKEN>"
 
 
 ## League Full/Partial Update
 
-**Endpoint**: <http://localhost:8000/api/leagues/PK/> (PUT or PATCH REQUEST)
+**Permissions**: Is League Owner
+
+**Endpoint**: <http://localhost:8000/api/leagues/PK/>
+
+        PUT/PATCH DATA = {
+          "title": "<UPDATED_TITLE>"
+          ...
+        }
 
 ## League Destroy
 
-**Endpoint**: <http://localhost:8000/api/leagues/PK/> (DELETE REQUEST)
+**Permissions**: Is League Owner
 
+**Endpoint**: <http://localhost:8000/api/leagues/PK/>
+
+        DELETE REQUEST:
+          Authorization: "Bearer <ACCESS_TOKEN>"
 
 ## League List
 
-Returns a list of public league profiles. If user query-param is specified, returns all leagues associated to that user
+Returns a list of public (not private) league profiles. If user query-param is specified, returns all leagues associated to that user
 
-**Endpoint** <http://localhost:8000/api/leagues/> (GET REQUEST)
+**Permissions**: Is Umpire Owner
+
+**Endpoint** <http://localhost:8000/api/leagues/>
+
+        GET REQUEST:
+          Authorization: "Bearer <ACCESS_TOKEN>"
 
 **Query-Params**
 
@@ -33,23 +62,51 @@ Returns a list of public league profiles. If user query-param is specified, retu
 
 ## Division Create
 
-Note that Division only supports Create/Destroy functionality. Divisions should never be individually accessed or updated. See League
+Note that Division only supports Create/Destroy functionality. Only add other functionality if necessary. Additional validation requirements in serializer level
 
-**Endpoint**: <http://localhost:8000/api/divisions/> (POST REQUEST)
+**Permissions**: Is Manager
+
+**Endpoint**: <http://localhost:8000/api/divisions/>
+
+        POST DATA = {
+          "title": <DIVISION_TITLE>,
+          "league": <LEAGUE_PK>
+        }
 
 ## Division Destroy
 
-**Endpoint**: <http://localhost:8000/api/divisions/PK/> (DELETE REQUEST)
+**Permissions**: Is Division Owner
+
+**Endpoint**: <http://localhost:8000/api/divisions/PK/>
+
+
+        DELETE REQUEST:
+          Authorization: "Bearer <ACCESS_TOKEN>"
+
+
 
 ## Role Create
 
-Similar to Division. Only supports Create/Destroy functionality
+Similar to Division. Only supports Create/Destroy functionality. Additional validation requirements in serializer level
 
-**Endpoint**: <http://localhost:8000/api/roles/> (POST REQUEST)
+**Permissions**: Is Manager
+
+**Endpoint**: <http://localhost:8000/api/roles/>
+
+        POST DATA = {
+          "title": <ROLE_TITLE>,
+          "division": <DIVISION_PK>
+        }
 
 ## Role Destroy
 
-**Endpoint**: <http://localhost:8000/api/roles/PK/> (DELETE REQUEST)
+**Permissions**: Is Division Owner
+
+**Endpoint**: <http://localhost:8000/api/roles/PK/>
+
+        DELETE REQUEST:
+          Authorization: "Bearer <ACCESS_TOKEN>"
+
 
 
 ## ApplyLeagueCode Create
