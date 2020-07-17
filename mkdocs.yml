@@ -9,7 +9,7 @@ nav:
     - 'Notification Models': 'models/notifications.md'
   - 'Serializers':
     - 'Users Serializers': 'serializers/users.md'
-    - 'Leagues Serializers': 'serializers/leagues.md
+    - 'Leagues Serializers': 'serializers/leagues.md'
   - 'Endpoints':
     - 'User Endpoints': 'endpoints/users.md'
     - 'League Endpoints': 'endpoints/leagues.md'
