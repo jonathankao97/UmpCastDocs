@@ -166,11 +166,13 @@
         password = CharField(max_length=128, write_only=True)
         password2 = CharField(max_length=128, write_only=True)
 </code></pre>
-<p>Extra Validations:
-- Password validated using django built in password validator
-- Password2 validated against password for equality
-- Phone number must be of length 10 and only contain numeric values
-- Create: First_name, Last_name, email, password, and password2 must all be specified</p>
+<p>Extra Validations:</p>
+<ul>
+<li>Password validated using django built in password validator</li>
+<li>Password2 validated against password for equality</li>
+<li>Phone number must be of length 10 and only contain numeric values</li>
+<li>Create: First_name, Last_name, email, password, and password2 must all be specified</li>
+</ul>
 <h2 id="user-profile-public-serializer">User Profile Public Serializer</h2>
 <p>Used for list and filter operations. Displays only public information about user. This info cannot be edited. No extra validations</p>
 <pre><code>    UserProfilePublicSerializer():
