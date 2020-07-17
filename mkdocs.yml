@@ -8,7 +8,8 @@ nav:
     - 'Game Models': 'models/games.md'
     - 'Notification Models': 'models/notifications.md'
   - 'Serializers':
-    - 'Leagues Serializers': 'serializers/leagues.md'
+    - 'Users Serializers': 'serializers/users.md'
+    - 'Leagues Serializers': 'serializers/leagues.md
   - 'Endpoints':
     - 'User Endpoints': 'endpoints/users.md'
     - 'League Endpoints': 'endpoints/leagues.md'
