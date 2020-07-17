@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>League Endpoints - UmpCast API Docs</title>
+        <title>Users Serializers - UmpCast API Docs</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -60,37 +60,37 @@
 </li>
                                 </ul>
                             </li>
-                            <li class="dropdown">
+                            <li class="dropdown active">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Serializers <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="../../serializers/users/" class="dropdown-item">Users Serializers</a>
+    <a href="./" class="dropdown-item active">Users Serializers</a>
 </li>
                                     
 <li>
-    <a href="../../serializers/leagues/" class="dropdown-item">Leagues Serializers</a>
+    <a href="../leagues/" class="dropdown-item">Leagues Serializers</a>
 </li>
                                 </ul>
                             </li>
-                            <li class="dropdown active">
+                            <li class="dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Endpoints <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="../users/" class="dropdown-item">User Endpoints</a>
+    <a href="../../endpoints/users/" class="dropdown-item">User Endpoints</a>
 </li>
                                     
 <li>
-    <a href="./" class="dropdown-item active">League Endpoints</a>
+    <a href="../../endpoints/leagues/" class="dropdown-item">League Endpoints</a>
 </li>
                                     
 <li>
-    <a href="../games/" class="dropdown-item">Game Endpoints</a>
+    <a href="../../endpoints/games/" class="dropdown-item">Game Endpoints</a>
 </li>
                                     
 <li>
-    <a href="../notifications/" class="dropdown-item">Notification Endpoints</a>
+    <a href="../../endpoints/notifications/" class="dropdown-item">Notification Endpoints</a>
 </li>
                                 </ul>
                             </li>
@@ -103,12 +103,12 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href="../users/" class="nav-link">
+                                <a rel="prev" href="../../models/notifications/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../games/" class="nav-link">
+                                <a rel="next" href="../leagues/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -130,61 +130,13 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="1"><a href="#leagues-application-endpoints" class="nav-link">Leagues Application Endpoints</a>
+            <li class="nav-item" data-level="1"><a href="#users-app-serializers" class="nav-link">Users App Serializers</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#league-create" class="nav-link">League Create</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#league-retrieve" class="nav-link">League Retrieve</a>
+            <li class="nav-item" data-level="2"><a href="#user-profile-private-serializer" class="nav-link">User Profile Private Serializer</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#league-fullpartial-update" class="nav-link">League Full/Partial Update</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#league-destroy" class="nav-link">League Destroy</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#league-list" class="nav-link">League List</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#division-create" class="nav-link">Division Create</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#division-destroy" class="nav-link">Division Destroy</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#role-create" class="nav-link">Role Create</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#role-destroy" class="nav-link">Role Destroy</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#applyleaguecode-create" class="nav-link">ApplyLeagueCode Create</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#applyleaguecode-retrieve" class="nav-link">ApplyLeagueCode Retrieve</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#applyleaguecode-updatepartial-update" class="nav-link">ApplyLeagueCode Update/Partial Update</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#applyleaguecode-destroy" class="nav-link">ApplyLeagueCode Destroy</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#applyleague-code-list" class="nav-link">ApplyLeague Code List</a>
+            <li class="nav-item" data-level="2"><a href="#user-profile-public-serializer" class="nav-link">User Profile Public Serializer</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -195,87 +147,39 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="leagues-application-endpoints">Leagues Application Endpoints</h1>
-<h2 id="league-create">League Create</h2>
-<p><strong>Permissions</strong>: Is Manager</p>
-<p><strong>Endpoint</strong>: <a href="http://localhost:8000/api/leagues/">http://localhost:8000/api/leagues/</a></p>
-<pre><code>    POST DATA = {
-      "title": "&lt;LEAGUE_NAME&gt;"
-    }
+<h1 id="users-app-serializers">Users App Serializers</h1>
+<h2 id="user-profile-private-serializer">User Profile Private Serializer</h2>
+<p>Used for Create, Retrieve, and Update operations. Displays all information about User (hence, private).</p>
+<pre><code>    UserProfilePrivateSerializer():
+        pk = IntegerField(label='ID', read_only=True)
+        account_type = ChoiceField(choices=(('umpire', 'umpire'), ('manager', 'manager'), ('inactive', 'inactive')), required=False)
+        leagues = PrimaryKeyRelatedField(many=True, queryset=League.objects.all(), required=False)
+        email = EmailField(max_length=255, validators=[&lt;UniqueValidator(queryset=User.objects.all())&gt;])
+        email_notifications = BooleanField(required=False)
+        first_name = CharField(max_length=255)
+        last_name = CharField(max_length=255)
+        is_configured = BooleanField(required=False)
+        phone_number = CharField(allow_blank=True, max_length=10, required=False)
+        phone_notifications = BooleanField(required=False)
+        profile_picture = ImageField(allow_null=True, max_length=100, required=False)
+        date_joined = DateTimeField(required=False)
+        password = CharField(max_length=128, write_only=True)
+        password2 = CharField(max_length=128, write_only=True)
 </code></pre>
-<h2 id="league-retrieve">League Retrieve</h2>
-<p>Returns nested substructure of league including divisions and roles</p>
-<p><strong>Permissions</strong>: Is League Owner</p>
-<p><strong>Endpoint</strong>: <a href="http://localhost:8000/api/leagues/PK/">http://localhost:8000/api/leagues/PK/</a></p>
-<pre><code>    GET REQUEST:
-      Authorization: "Bearer &lt;ACCESS_TOKEN&gt;"
-</code></pre>
-<h2 id="league-fullpartial-update">League Full/Partial Update</h2>
-<p><strong>Permissions</strong>: Is League Owner</p>
-<p><strong>Endpoint</strong>: <a href="http://localhost:8000/api/leagues/PK/">http://localhost:8000/api/leagues/PK/</a></p>
-<pre><code>    PUT/PATCH DATA = {
-      "title": "&lt;UPDATED_TITLE&gt;"
-      ...
-    }
-</code></pre>
-<h2 id="league-destroy">League Destroy</h2>
-<p><strong>Permissions</strong>: Is League Owner</p>
-<p><strong>Endpoint</strong>: <a href="http://localhost:8000/api/leagues/PK/">http://localhost:8000/api/leagues/PK/</a></p>
-<pre><code>    DELETE REQUEST:
-      Authorization: "Bearer &lt;ACCESS_TOKEN&gt;"
-</code></pre>
-<h2 id="league-list">League List</h2>
-<p>Returns a list of public (not private) league profiles. If user query-param is specified, returns all leagues associated to that user</p>
-<p><strong>Permissions</strong>: Is Umpire Owner</p>
-<p><strong>Endpoint</strong> <a href="http://localhost:8000/api/leagues/">http://localhost:8000/api/leagues/</a></p>
-<pre><code>    GET REQUEST:
-      Authorization: "Bearer &lt;ACCESS_TOKEN&gt;"
-</code></pre>
-<p><strong>Query-Params</strong></p>
-<pre><code>    \?user=&lt;USER_PK&gt;
-</code></pre>
-<h2 id="division-create">Division Create</h2>
-<p>Note that Division only supports Create/Destroy functionality. Only add other functionality if necessary. Additional validation requirements in serializer level</p>
-<p><strong>Permissions</strong>: Is Manager</p>
-<p><strong>Endpoint</strong>: <a href="http://localhost:8000/api/divisions/">http://localhost:8000/api/divisions/</a></p>
-<pre><code>    POST DATA = {
-      "title": &lt;DIVISION_TITLE&gt;,
-      "league": &lt;LEAGUE_PK&gt;
-    }
-</code></pre>
-<h2 id="division-destroy">Division Destroy</h2>
-<p><strong>Permissions</strong>: Is Division Owner</p>
-<p><strong>Endpoint</strong>: <a href="http://localhost:8000/api/divisions/PK/">http://localhost:8000/api/divisions/PK/</a></p>
-<pre><code>    DELETE REQUEST:
-      Authorization: "Bearer &lt;ACCESS_TOKEN&gt;"
-</code></pre>
-<h2 id="role-create">Role Create</h2>
-<p>Similar to Division. Only supports Create/Destroy functionality. Additional validation requirements in serializer level</p>
-<p><strong>Permissions</strong>: Is Manager</p>
-<p><strong>Endpoint</strong>: <a href="http://localhost:8000/api/roles/">http://localhost:8000/api/roles/</a></p>
-<pre><code>    POST DATA = {
-      "title": &lt;ROLE_TITLE&gt;,
-      "division": &lt;DIVISION_PK&gt;
-    }
-</code></pre>
-<h2 id="role-destroy">Role Destroy</h2>
-<p><strong>Permissions</strong>: Is Division Owner</p>
-<p><strong>Endpoint</strong>: <a href="http://localhost:8000/api/roles/PK/">http://localhost:8000/api/roles/PK/</a></p>
-<pre><code>    DELETE REQUEST:
-      Authorization: "Bearer &lt;ACCESS_TOKEN&gt;"
-</code></pre>
-<h2 id="applyleaguecode-create">ApplyLeagueCode Create</h2>
-<p><strong>Endpoint</strong> <a href="http://localhost:8000/api/apply-league-code/">http://localhost:8000/api/apply-league-code/</a> (POST REQUEST)</p>
-<h2 id="applyleaguecode-retrieve">ApplyLeagueCode Retrieve</h2>
-<p><strong>Endpoint</strong> <a href="http://localhost:8000/api/apply-league-code/PK/">http://localhost:8000/api/apply-league-code/PK/</a> (GET REQUEST)</p>
-<h2 id="applyleaguecode-updatepartial-update">ApplyLeagueCode Update/Partial Update</h2>
-<p><strong>Endpoint</strong> <a href="http://localhost:8000/api/apply-league-code/PK">http://localhost:8000/api/apply-league-code/PK</a> (PUT or PATCH REQUEST)</p>
-<h2 id="applyleaguecode-destroy">ApplyLeagueCode Destroy</h2>
-<p><strong>Endpoint</strong> <a href="http://localhost:8000/api/apply-league-code/PK">http://localhost:8000/api/apply-league-code/PK</a>  (DELETE REQUEST)</p>
-<h2 id="applyleague-code-list">ApplyLeague Code List</h2>
-<p><strong>Endpoint</strong> <a href="http://localhost:8000/api/apply-league-code/">http://localhost:8000/api/apply-league-code/</a> (GET REQUEST)</p>
-<p><strong>Query-Params</strong></p>
-<pre><code>    \?league=&lt;LEAGUE_PK&gt;
+<p>Extra Validations:
+- Password validated using django built in password validator
+- Password2 validated against password for equality
+- Phone number must be of length 10 and only contain numeric values
+- Create: First_name, Last_name, email, password, and password2 must all be specified</p>
+<h2 id="user-profile-public-serializer">User Profile Public Serializer</h2>
+<p>Used for list and filter operations. Displays only public information about user. This info cannot be edited. No extra validations</p>
+<pre><code>    UserProfilePublicSerializer():
+      pk = IntegerField(label='ID', read_only=True)
+      first_name = CharField(read_only=True)
+      last_name = CharField(read_only=True)
+      profile_picture = ImageField(read_only=True)
+      date_joined = DateTimeField(read_only=True)
+      account_type = ChoiceField(choices=(('umpire', 'umpire'), ('manager', 'manager'), ('inactive', 'inactive')), read_only=True)
 </code></pre></div>
             </div>
         </div>
